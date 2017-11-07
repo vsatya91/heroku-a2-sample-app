@@ -1,16 +1,35 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{title}}!
-  </h1>
-  <img width="300" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2 class="text-center">Heroku Sample Deployment Application</h2>
 <div class="container">
   <div class="row">
-    <div class="col-12">
-        <h1>My Pipe Line Integration Test</h1>
+    <div class="col-6 mx-auto">
+      <h1 class="text-center mb-3">Mohan Raj Sample POC Form</h1>
+      <div class="card">
+        <div class="card-header">
+          Custom Email Validator
+        </div>
+        <div class="card-body">
+          <form #form="ngForm">
+            <!-- <div class="form-group">
+              <label>Default Angular 4 Email vaildator</label>
+              <input type="email" name="defaultEmailField" class="form-control" ngModel email aria-describedby="emailHelp" placeholder="Enter email">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div> -->
+            <div class="form-group">
+              <label for="exampleInputEmail1">Our Custom Email vaildator</label>
+              <input type="email" name="customEmail" [(ngModel)]="user.emailAddress" appEmailValidator #customEmailField="ngModel" class="form-control"
+                id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+              <small id="emailHelp" *ngIf="!customEmailField.valid" class="form-text text-danger">Its a Invalid Email address.</small>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Default Angular 4 Email vaildator</label>
+              <input type="email" required class="form-control" placeholder="Enter email" email name="emailField" [(ngModel)]="title" #emailField="ngModel">
+              <div [ngClass]="{'invalid-feedback': false}" *ngIf="emailField.invalid">
+                <small id="emailHelp" *ngIf="emailField.hasError('email')" class="form-text text-danger">Its a Invalid Email address.</small>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
-
